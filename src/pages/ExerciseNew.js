@@ -1,25 +1,37 @@
 import React from "react";
+import ExerciseForm from "../components/ExerciseForm";
+import Card from "../components/Card";
 
 class ExerciseNew extends React.Component {
-  // constructor(props) {
-  //   super(props);
+  state = {
+    form: {
+      // title: "",
+      // description: "",
+      // img: "",
+      // leftColor: "",
+      // rightColor: "",
+    },
+  };
 
-  //   this.handleClick = this.handleClick.bind(this);
-  // }
-
-  // handleClick() {
-  //   console.log(this);
-  // }
-
-  handleClick = () => {
-    console.log("Clicked");
+  handleChange = (e) => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        [e.target.name]: e.target.value,
+      },
+    });
   };
 
   render() {
     return (
-      <button onClick={this.handleClick} className="btn btn-primary">
-        Crear rutina
-      </button>
+      <div className="row" style={{ margin: "120px" }}>
+        <div className="col-sm">
+          <Card {...this.state.form} />
+        </div>
+        <div className="col-sm">
+          <ExerciseForm onChange={this.handleChange} form={this.state.form} />
+        </div>
+      </div>
     );
   }
 }
