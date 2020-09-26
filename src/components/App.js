@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Excercises from "../pages/Exercises";
-import ExcerciseNew from "../pages/ExerciseNew";
-import NotFound from "../pages/NotFound";
+import ExercisesContainer from "../pages/ExercisesContainer";
+import ExerciseNewContainer from "../pages/ExerciseNewContainer";
+import NotFound from "../pages/404";
 
 const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/exercises" component={Excercises} />
-      <Route exact path="/exercise/new" component={ExcerciseNew} />
+      <Route exact path="/exercises" component={ExercisesContainer} />
+      <Route exact path="/exercise/new" component={ExerciseNewContainer} />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>
